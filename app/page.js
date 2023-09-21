@@ -8,7 +8,8 @@ export default function Home() {
     <main className= 'flex min-h-screen flex-col items-center justify-between p-24'>
       <h1 className="text-4xl">CPRG-306: WebDevelopment 2 - Assignments</h1>
       <StudentInfo />
-      <Link href="/week2"> Week 2</Link>
+      <li> <Link href="/week2"> Week 2</Link></li>
+     <li> <Link href="/week3"> Week 3</Link></li>
     </main>
   );
 }
