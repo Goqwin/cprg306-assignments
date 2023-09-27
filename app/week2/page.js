@@ -20,6 +20,18 @@ export default function ShoppingList() {
           </p>
         </div>
       </div>
+      <div>
+        <p> There's NOTHING?!</p>
+        <p> Wait a second... </p>
+        <p className="relative">
+  <Link href="/week3">
+    <span className="text-black hover:text-white hover:text-4xl transition-all duration-300">
+      SURPRISE
+    </span>
+  </Link>
+  <span className="absolute top-0 left-0 w-0 h-0 bg-black hover:bg-white transform scale-0 hover:scale-100 origin-top-left transition-all duration-300"></span>
+</p>
+      </div>
       <Link href="/">Home</Link>
     </main>
   );

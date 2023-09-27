@@ -3,7 +3,7 @@ import ItemsList from './item-list';
 
 function Page() {
   const mainStyle = {
-    backgroundImage: 'url("https://wallpaperaccess.com/full/2825810.gif")',
+    backgroundImage: 'url("https://i.pinimg.com/originals/ab/90/cd/ab90cd665a40678eb76c3b80a2d5a83f.gif")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -17,7 +17,7 @@ function Page() {
           href="https://github.com/Goqwin"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative text-3xl hover:text-5xl hover:text-green-300"
+          className="relative text-3xl hover:text-5xl"
         >
           Godwin's Shopping List 🛒 
           <span className="absolute opacity-0 group-hover:opacity-100 text-gray-400 transition-opacity duration-300 ml-2">
