@@ -27,6 +27,9 @@ function Page() {
       </h1>
       <div className="bg-slate-900 p-6 rounded-md shadow-md w-full md:w-3/4 lg:w-1/2">
         <ItemsList />
+        <p className="text-white text-center mt-4"> Add an item? 
+        <Link href="/week4"> Right here → Week 4</Link>
+        </p>
       </div>
       <Link href="/" className="text-white hover:underline mt-4">
         Back to Home
