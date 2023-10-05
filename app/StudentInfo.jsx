@@ -1,6 +1,4 @@
-import Link from "next/link";
-
-
+import Link from 'next/link';
 export default function StudentInfo() {
   return (
       <div>
@@ -8,8 +6,5 @@ export default function StudentInfo() {
       <p> Course: CPRG-306B </p>
       <Link href="https://github.com/Goqwin"> Github: Godwin </Link>
       </div>
-  );
-  }
-
-
-
+  );  
+}

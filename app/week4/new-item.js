@@ -6,30 +6,23 @@ const NewItem = () => {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState('produce');
   const [error, setError] = useState('');
-
   const validateForm = () => {
-    if (!name || name.trim() === '') {
-      setError('Name is required');
-      return false;
-    }
-    if (quantity < 1 || quantity > 99) {
-      setError('Quantity must be between 1 and 99');
-      return false;
-    }
-    setError('');
-    return true;
+    !name || name.trim() === ''
+      ? setError('Name is required')
+      : quantity < 1 || quantity > 99
+      ? setError('Quantity must be between 1 and 99')
+      : setError('');
+    return !error;
   };
-
+  
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
-
+  
   const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+    quantity > 1 && setQuantity(quantity - 1);
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -48,8 +41,8 @@ const NewItem = () => {
 
   return (
     <div>
-     <h2 className="text-black">useStates and Hooks</h2>
-     <form onSubmit={handleSubmit} className="p-2 m-4 bg-black text-black max-w-sm w-full">
+      <h2 className="text-black">useStates and Hooks</h2>
+      <form onSubmit={handleSubmit} className="p-2 m-4 bg-black text-black max-w-sm w-full">
         <div className="mb-2">
           <input
             type="text"
@@ -98,22 +91,28 @@ const NewItem = () => {
         </div>
         {error && <p className="error-message">{error}</p>}
         <button
-          type="submit"
+          type="button"
+          onClick={handleIncrement}
           className="w-full mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
         >
           +
         </button>
         <button
-          type="submit"
+          type="button"
+          onClick={handleDecrement}
           className="w-full mt-4 py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
         >
           -
         </button>
-
+        <button
+          type="submit"
+          className="w-full mt-4 py-2 px-4 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
 };
 
 export default NewItem;
-
