@@ -28,7 +28,7 @@ function Page() {
       <div className="bg-slate-600 p-6 rounded-md shadow-md w-full md:w-3/4 lg:w-1/2 border border-gray-400">
         <ItemsList />
       </div>
-      <Link href="/" className="text-white hover:underline mt-4">
+      <Link href="/" className="text-white hover:underline mt-5">
         Back to Home
       </Link>
     </main>
