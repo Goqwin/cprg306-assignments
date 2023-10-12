@@ -33,9 +33,14 @@ export default function Home() {
                   <Link href="/week4">Week 4</Link>
                 </button>
               </li>
-              <li className="transition duration-300 ease-in-out transform hover:scale-105">
+              <li className="mr-5 transition duration-300 ease-in-out transform hover:scale-105">
                 <button className="inline-block p-2 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
                   <Link href="/week5">Week 5</Link>
+                </button>
+              </li>
+              <li className="mr-5 transition duration-300 ease-in-out transform hover:scale-105">
+                <button className="inline-block p-2 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
+                  <Link href="/week6">Week 6</Link>
                 </button>
               </li>
             </ul>
