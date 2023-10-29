@@ -1,31 +1,21 @@
 "use client";
-import Item from './item';
-import itemData from './item.json';
 import React, { useState } from 'react';
 
-
-function ItemList() {
+function ItemList({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState('name');
   const [grouped, setGrouped] = useState(false);
-
-  const handleSortChange = (e) => {
-    setSortBy(e.target.value);
-    if (grouped) {
-      setGrouped(false);
-    }
-  };
 
   const sortFunctions = {
     name: (a, b) => a.name.localeCompare(b.name),
     category: (a, b) => a.category.localeCompare(b.category),
   };
 
-  const sortedItems = [...itemData].sort(sortFunctions[sortBy] || (() => 0));
+  const sortedItems = [...items].sort(sortFunctions[sortBy] || (() => 0));
 
   const handleGroupClick = () => {
     setGrouped(!grouped);
-    if (grouped) {
-      setSortBy('name'); 
+    if (!grouped) {
+      setSortBy('name'); // Reset sort by to name when grouping is enabled
     }
   };
 
@@ -48,55 +38,45 @@ function ItemList() {
     return groupedAndSorted;
   };
 
+  const handleItemClick = (item) => {
+    if (onItemSelect) {
+      onItemSelect(item);
+    }
+  };
+
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold text-white mb-4">Assignment 5: List Handling </h2>
-      <div className="mb-4">
-        <label htmlFor="sortBySelect" className="text-white">
+      <div className="mb-4 flex items-center">
+        <label htmlFor="sortBySelect" className="text-white mr-4">
           Sort by:
         </label>
-        <select
-          id="sortBySelect"
-          value={sortBy}
-          onChange={handleSortChange}
-          className="mt-4 bg-dark-slate text-black p-2 rounded-md"
-        >
-          <option value="name">Name</option>
-          <option value="category">Category</option>
-        </select>
-      </div>
-      <div className="mb-4">
         <button
           onClick={() => {
             setSortBy('name');
-            if (grouped) {
-              setGrouped(false);
-            }
+            setGrouped(false);
           }}
           className={`${
             sortBy === 'name' && !grouped ? 'bg-orange-500 text-white' : 'bg-gray-400 text-gray-800'
-          } px-4 py-2 rounded-md mr-2`}
+          } px-4 py-2 rounded-md mx-2`}
         >
-          Sort by Name
+          Name
         </button>
         <button
           onClick={() => {
             setSortBy('category');
-            if (grouped) {
-              setGrouped(false);
-            }
+            setGrouped(false);
           }}
           className={`${
             sortBy === 'category' && !grouped ? 'bg-orange-500 text-white' : 'bg-gray-400 text-gray-800'
-          } px-4 py-2 rounded-md mr-2`}
+          } px-4 py-2 rounded-md mx-2`}
         >
-          Sort by Category
+          Category
         </button>
         <button
           onClick={handleGroupClick}
           className={`${
             grouped ? 'bg-orange-500 text-white' : 'bg-gray-400 text-gray-800'
-          } px-4 py-2 rounded-md`}
+          } px-4 py-2 rounded-md mx-2`}
         >
           Group by Category
         </button>
@@ -106,12 +86,13 @@ function ItemList() {
             <div key={category}>
               <h2 className="text-white capitalize">{category}</h2>
               <ul>
-                {groupAndSortByCategory()[category].map((item, index) => (
+                {groupAndSortByCategory()[category].map((item) => (
                   <li
-                    key={index}
+                    key={item.name}
+                    onClick={() => handleItemClick(item)}
                     className="bg-dark-slate p-4 rounded-md shadow-md mb-4 border-white border hover:scale-105 transition-transform duration-300"
                   >
-                    <div className="text-lg font-semibold text-white">Name: {item.name}</div>
+                    <div className="text-lg font-semibold text-white">{item.name}</div>
                     <div className="text-white">
                       Buy {item.quantity} in {item.category}
                     </div>
@@ -122,23 +103,23 @@ function ItemList() {
           ))
         : (
           <ul>
-            {sortedItems.map((item, index) => (
+            {sortedItems.map((item) => (
               <li
-                key={index}
+                key={item.name}
+                onClick={() => handleItemClick(item)}
                 className="bg-dark-slate p-4 rounded-md shadow-md mb-4 border-white border hover:scale-105 transition-transform duration-300"
               >
-                <div className="text-lg font-semibold text-white">Name: {item.name}</div>
+                <div className="text-lg font-semibold text-white">{item.name}</div>
                 <div className="text-white">
                   Buy {item.quantity} in {item.category}
                 </div>
               </li>
             ))}
           </ul>
-        )
-      }
+        )}
     </div>
   );
 }
-export default ItemList;
 
+export default ItemList;
 

@@ -1,3 +1,4 @@
+
 import StudentInfo from '../app/StudentInfo.jsx';
 import Link from 'next/link';
 
@@ -46,6 +47,11 @@ export default function Home() {
               <li className="mr-5 transition duration-300 ease-in-out transform hover:scale-105">
                 <button className="inline-block p-2 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
                   <Link href="/week7">Week 7</Link>
+                </button>
+              </li>
+              <li className="mr-5 transition duration-300 ease-in-out transform hover:scale-105">
+                <button className="inline-block p-2 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
+                  <Link href="/week8">Week 8</Link>
                 </button>
               </li>
             </ul>
